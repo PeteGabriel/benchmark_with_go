@@ -7,11 +7,11 @@ import (
 	"strings"
 )
 
-//Parse content of file in sequential mode.
+//CountWords counts amount of words in a given file in sequential mode.
 //Read each line separated by the char '.'
 //For each line split by space and accumulate
 //the number of words in that line.
-func Counter(fn string) (int, error) {
+func CountWords(fn string) (int, error) {
 	lns, err := splitFile(fn)
 	if err != nil {
 		log.Print(err.Error())

@@ -1,4 +1,5 @@
-package sequential
+package concurrent
+
 
 import (
 	is2 "github.com/matryer/is"
