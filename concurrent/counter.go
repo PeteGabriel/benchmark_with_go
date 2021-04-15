@@ -26,7 +26,6 @@ func CountWords(fn string) (int, error) {
 
 	for _, ln := range lns {
 		wg.Add(1)
-		log.Print("wait + 1")
 		go countWords(&wg, ln, lnsChl)
 	}
 
@@ -44,13 +43,10 @@ func CountWords(fn string) (int, error) {
 func countWords(wg *sync.WaitGroup, ln string, lnChl chan int){
 	defer wg.Done()
 	if ln == "" {
-		log.Print("send value")
 		lnChl <- 0 //ignore blank lines
 	}else {
-		log.Print("send value")
-		lnChl <- len(strings.Split(ln, " "))
+		lnChl <- len(strings.Split(strings.Trim(ln, "\n "), " "))
 	}
-	log.Print("wait - 1")
 }
 
 

@@ -22,7 +22,7 @@ func CountWords(fn string) (int, error) {
 		if ln == "" {
 			continue //ignore blank lines
 		}
-		acc = acc + len(strings.Split(ln, " "))
+		acc = acc + len(strings.Split(strings.Trim(ln, "\n "), " "))
 	}
 	return acc, nil
 }
